@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>menu</title>
+</head>
+
+<body 
+bgcolor="#FFFFFF" vlink="#000000" alink="#000000" topmargin="0"  leftmargin="0" marginheight="0" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+<table width="130" border="0" align="center" cellpadding="15" cellspacing="0">
+  <tr>
+    <td width="130">
+    <a href="../body.html" target="mainFrame" onFocus= 'this.blur()'><img src="img/home.png" alt="home" width="100" height="96" border="0" /></a><br />
+    <br />
+    <a href="http://jsoboro.tistory.com/" target="mainFrame" onFocus= 'this.blur()'><img src="img/waiterj.png" alt="print" width="100" height="102" border="0" /></a><br />
+	<a href="../soboro.html" target="mainFrame" onFocus= 'this.blur()'><img src="img/soboroshin.png" alt="blog" width="100" height="102" border="0" /></a><br />
+    <a href="../euro.html" target="mainFrame" onFocus= 'this.blur()'><img src="img/euro.png" width="100" height="102" border="0" /></a><br /><br />
+	<a href="../melody.html" target="mainFrame" onFocus= 'this.blur()'>
+		<canvas id="melody" width="100" height="102"></canvas>​
+		<script type="text/javascript">
+		var img = new Image(); 
+		// Get the canvas element.
+		canvas = document.getElementById("melody");
+
+		// Make sure you got it.
+		if (canvas.getContext) {
+			// Specify 2d canvas type.
+			ctx = canvas.getContext("2d");
+			// When the image is loaded, draw it.
+			img.onload = function() {
+				// Load the image into the context.
+				ctx.beginPath();
+				ctx.arc(50, 50, 50, 0, 2*Math.PI, true);
+				ctx.clip();
+				ctx.drawImage(img, 0, 0);
+			}
+			// Define the source of the image.
+			img.src = "img/melody.png";
+		}
+		</script>
+	</a><br />
+    <br />
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>JSOBORO BLOG</title>
+<script type="text/javascript">
+// Create a new blank image.
+var img = new Image(); 
+
+// Load the image and display it.
+function displayImage() {
+	// Get the canvas element.
+	canvas = document.getElementById("main_img");
+
+	// Make sure you got it.
+	if (canvas.getContext) {
+		// Specify 2d canvas type.
+		ctx = canvas.getContext("2d");
+		// When the image is loaded, draw it.
+		img.onload = function() {
+			// Load the image into the context.
+			ctx.beginPath();
+			ctx.arc(300, 300, 300, 0, 2*Math.PI, true);
+			ctx.clip();
+			ctx.drawImage(img, 0, 0);
+			// Get and modify the image data.
+			changeImage();
+		}
+		// Define the source of the image.
+		img.src = "images/background.png";
+	}
+}
+
+function changeImage() {
+	ctx.strokeStyle = "white";
+	ctx.lineWidth = "2";
+	ctx.beginPath();
+	ctx.arc(300, 300, 300, 0, Math.PI*2, true);
+	ctx.closePath();
+	ctx.stroke();
+}
+</script>
+</head>
+<body align="center" onload="displayImage()">
+
+<canvas id="main_img" width="600" height="600"></canvas>​
+
+</body>
+</noframes></html>

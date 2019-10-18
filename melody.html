@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>JSOBORO BLOG</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="js/instafeed.min.js"></script>
+<script type="text/javascript">
+    var feed = new Instafeed({
+        //clientId: '6154695b25e249f3b0652b509c73caca',
+		accessToken: '125136.6154695.feed789c2c664de89781aea435153290',
+		get: 'user',
+        userId: '125136',
+		limit: '10',
+		resolution: 'standard_resolution',
+		filter: function(image) {
+			if (image.type == 'image') {
+				image.template = '<img src="' + image.images.standard_resolution.url + '" />';
+			} else {
+				image.template = '<video controls loop><source src="' + image.videos.standard_resolution.url + '" type="video/mp4"/></video>';
+			}
+			return image.tags.indexOf('melody') >= 0;
+		},
+		template: '<div id="{{model.id}}"><br /><div style="display:flex;flex-direction:row;justify-content:center;align-items:top;">{{model.template}} ♥ {{likes}}</div><br /><div style="float:center;">{{caption}}</div><br /><br /></div>',
+		after: function() {
+			$("video").each(function(index,element){
+				this.load();
+			});
+			$(document).on('scroll', checkMedia);
+		}
+    });
+    
+	function checkMedia(){
+		var tolerancePixel = 40;
+		// Get current browser top and bottom
+		var scrollTop = $(window).scrollTop() + tolerancePixel;
+		var scrollBottom = $(window).scrollTop() + $(window).height() - tolerancePixel;
+		$("video").each(function(index, element) {
+			var yTopMedia = $(this).offset().top;
+			var yBottomMedia = $(this).height() + yTopMedia;
+			if(scrollTop < yBottomMedia && scrollBottom > yTopMedia){
+				$(this).get(0).play();
+			} else {
+				$(this).get(0).pause();
+			}
+		});
+	}
+	
+	$(document).ready(function() {
+		feed.run(); // Run Instafeed
+    });
+</script>
+
+</head>
+<body>
+<div id="instafeed" align="center"></div>
+</body>
+</html>
