@@ -9,10 +9,10 @@
     var feed = new Instafeed({
         //clientId: '6154695b25e249f3b0652b509c73caca',
 		accessToken: '125136.6154695.feed789c2c664de89781aea435153290',
-		get: 'user',
-        userId: '422406370',
+		//get: 'user',
+        //userId: '422406370',
 		limit: '20',
-		resolution: 'standard_resolution',
+		//resolution: 'standard_resolution',
 		filter: function(image) {
 			if (image.type == 'image') {
 				image.template = '<img src="' + image.images.standard_resolution.url + '" />';
