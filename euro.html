@@ -13,7 +13,7 @@
 	        filter: function(item) {
 			return item.tags.indexOf('euro') >= 0;
 		},
-		template: '<div id="{{model.id}}"><br /><div style="display:flex;flex-direction:row;justify-content:center;align-items:top;"><img src="{{image}}" /></div><br /><div style="float:center;">{{caption}}</div><br /><br /></div>'
+		template: '<div id="{{model.id}}"><br /><div style="display:flex;flex-direction:row;justify-content:center;align-items:top;"><img src="{{image}}" style="max-width:100%; height:auto;"/></div><br /><div style="float:center;">{{caption}}</div><br /><br /></div>'
     });
 	
 	$(document).ready(function() {
