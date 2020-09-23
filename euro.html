@@ -14,38 +14,7 @@
         //userId: '125136',
 		limit: 10,
 		//resolution: 'standard_resolution',
-		filter: function(image) {
-			if (image.type == 'image') {
-				image.template = '<img src="' + image.images.standard_resolution.url + '" />';
-			} else {
-				image.template = '<video controls loop><source src="' + image.videos.standard_resolution.url + '" type="video/mp4"/></video>';
-			}
-			return image.tags.indexOf('euro') >= 0;
-		},
-		template: '<div id="{{model.id}}"><br /><div style="display:flex;flex-direction:row;justify-content:center;align-items:top;">{{model.template}} ♥ {{likes}}</div><br /><div style="float:center;">{{caption}}</div><br /><br /></div>',
-		after: function() {
-			$("video").each(function(index,element){
-				this.load();
-			});
-			$(document).on('scroll', checkMedia);
-		}
     });
-    
-	function checkMedia(){
-		var tolerancePixel = 40;
-		// Get current browser top and bottom
-		var scrollTop = $(window).scrollTop() + tolerancePixel;
-		var scrollBottom = $(window).scrollTop() + $(window).height() - tolerancePixel;
-		$("video").each(function(index, element) {
-			var yTopMedia = $(this).offset().top;
-			var yBottomMedia = $(this).height() + yTopMedia;
-			if(scrollTop < yBottomMedia && scrollBottom > yTopMedia){
-				$(this).get(0).play();
-			} else {
-				$(this).get(0).pause();
-			}
-		});
-	}
 	
 	$(document).ready(function() {
 		feed.run(); // Run Instafeed
