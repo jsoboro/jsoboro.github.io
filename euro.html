@@ -8,16 +8,12 @@
 <script type="text/javascript" src="js/instafeed.min.js"></script>
 <script type="text/javascript">
     var feed = new Instafeed({
-        //clientId: '6154695b25e249f3b0652b509c73caca',
 		accessToken: InstagramToken,
-		//get: 'user',
-        //userId: '125136',
 		limit: 10,
 	        filter: function(item) {
-			console.log(item)
 			return item.tags.indexOf('euro') >= 0;
 		},
-		template: '<div id="{{model.id}}"><br /><div style="display:flex;flex-direction:row;justify-content:center;align-items:top;"><img src="{{image}}" /> ♥ {{likes}}</div><br /><div style="float:center;">{{caption}}</div><br /><br /></div>'
+		template: '<div id="{{model.id}}"><br /><div style="display:flex;flex-direction:row;justify-content:center;align-items:top;"><img src="{{image}}" /></div><br /><div style="float:center;">{{caption}}</div><br /><br /></div>'
     });
 	
 	$(document).ready(function() {
