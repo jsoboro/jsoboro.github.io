@@ -12,8 +12,8 @@
 		accessToken: InstagramToken,
 		//get: 'user',
         //userId: '125136',
-		limit: 10
-		//resolution: 'standard_resolution',
+		limit: 10,
+		template: '<div id="{{model.id}}"><br /><div style="display:flex;flex-direction:row;justify-content:center;align-items:top;"><img src="{{image}}" /> ♥ {{likes}}</div><br /><div style="float:center;">{{caption}}</div><br /><br /></div>'
     });
 	
 	$(document).ready(function() {
