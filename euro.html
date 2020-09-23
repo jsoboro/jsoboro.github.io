@@ -13,7 +13,7 @@
 	        filter: function(item) {
 			return item.tags.indexOf('euro') >= 0;
 		},
-		template: '<div id="{{model.id}}"><br /><div style="display:grid;grid-template-columns: repeat(2, 1fr);grid-template-rows: repeat(3, 1fr);grid-column-gap: 0.5rem;grid-row-gap: 0.5rem;max-width: 64rem;margin: auto;"><img src="{{image}}" style="max-width:100%; height:auto;"/></div><br /><div style="float:center;">{{caption}}</div><br /><br /></div>'
+		template: '<div id="{{model.id}}"><br /><div ><img src="{{image}}" style="max-width:100%; height:auto;"/></div><br /><div style="float:center;">{{caption}}</div><br /><br /></div>'
     });
 	
 	$(document).ready(function() {
@@ -23,6 +23,6 @@
 
 </head>
 <body>
-<div id="instafeed" align="center"></div>
+<div id="instafeed" style="display:grid;grid-template-columns: repeat(2, 1fr);grid-template-rows: repeat(3, 1fr);grid-column-gap: 0.5rem;grid-row-gap: 0.5rem;max-width: 64rem;margin: auto;"></div>
 </body>
 </html>
